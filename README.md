@@ -1,10 +1,13 @@
 # Angular auto-scaling textareas
 This Angular 1 directive turns every normal textarea into a vertically growing and shrinking one.
 
+## Demo
+https://jsfiddle.net/HubertGrzeskowiak/ubos505h/1/
+
 ## How to use
 Apply to a textarea element as attribute:
 
-    <textarea autoGrow></textarea>
+    <textarea auto-grow></textarea>
 
 As usual in Angular, you have to include the directive as dependency in the module you're using this in:
 
