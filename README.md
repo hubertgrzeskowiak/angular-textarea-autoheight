@@ -26,7 +26,7 @@ The technique used here does not create any cloned or hidden elements to determi
 Border and padding cause some problems. Best wrap the textarea with another element for those and set both to zero on the textarea element.
 
 ## Browser support
-✔️ Firefox 74
+✔️ Firefox 47
 
 ✔️ Chrome 51
 
