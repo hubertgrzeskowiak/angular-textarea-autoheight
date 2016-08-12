@@ -1,33 +1,47 @@
-# Angular auto-scaling textareas
+# Angular module: textarea-autoheight
 This Angular 1 directive turns every normal textarea into a vertically growing and shrinking one.
 
-## Demo
-https://jsfiddle.net/HubertGrzeskowiak/ubos505h/1/
+Original by Hubert Grzeskowiak
+Copyright 2016 Hubert Grzeskowiak
+MIT license
 
-## How to use
-Apply to a textarea element as attribute:
+# Demo
+https://plnkr.co/edit/T0dBtj2GHi95Oae7xAJJ?p=preview
 
-    <textarea auto-grow></textarea>
+# Problem Definition
+Normal HTML textarea elements  have no means of scaling depending on the text inside them. You can set the initial height and width, but as soon as the content doesn't fit inside, scrollbars show up. You can work around this by showing the overflow, but this messes up the whole layout.
 
-As usual in Angular, you have to include the directive as dependency in the module you're using this in:
-
-    angular.module('myApp', ['util.autoGrow'])
-    // ...rest of your code
-
-## Behaviour
+# Target Behaviour
 The height starts at the height of one line-height (one row) and expands automatically on every change - done by user input or Angular bindings. If the number of visible lines shrinks, so does the height of the textarea.
 
-## Technique
-The technique used for this behaviour utilizes the fact that a textarea's `scrollHeight` property tells the maximal calculated height. The calculated value doesn't automatically shrink as the textarea's value is reduced, though. Therefor we we first set the height to zero and then to `scrollHeight` on every change of value.
+# My Solution
+The technique used to implement the behaviour above utilizes the fact that a textarea's `scrollHeight` property tells the actual calculated height. The calculated value doesn't automatically shrink as the textarea's value is reduced, though. Therefore we first set the height to zero and then to `scrollHeight` on every change of value. This way we're using the browser's native calculation of the height with no side-effects.
 
-The technique used here does not create any cloned or hidden elements to determine the height.
+Unlike most other solutions to this problem, the technique used here does not create any cloned or hidden elements to determine the height.
 
-## Limitations
-Border and padding cause some problems. Best wrap the textarea with another element for those and set both to zero on the textarea element.
+# Usage
+Include the file in your HTML:
 
-## Browser support
-✔️ Firefox 47
+    <script src="autoheight.js"></script>
 
-✔️ Chrome 51
+Include as dependency in your module:
 
-✔️ Edge 25 (with minor shifting issues when switching between one line and two)
+    angular.module('myApp', ['textarea.autoheight'])    
+
+Apply to a textarea element as attribute:
+
+    <textarea auto-height></textarea>
+
+
+# Browser support
+Tested so far:
+
+✔ Firefox 47
+✔ Chrome 51
+✔ Edge 25
+
+# Bugs and improvements
+There is one known pitfall: animating the height using CSS transitiions will result in very jittery and bugged animation. If you feel like there's a way around this, please open an issue.
+
+
+Please feel free to fork and report issues on GitHub.
