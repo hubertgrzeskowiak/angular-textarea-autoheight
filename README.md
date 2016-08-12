@@ -2,7 +2,9 @@
 This Angular 1 directive turns every normal textarea into a vertically growing and shrinking one.
 
 Original by Hubert Grzeskowiak
+
 Copyright 2016 Hubert Grzeskowiak
+
 MIT license
 
 # Demo
