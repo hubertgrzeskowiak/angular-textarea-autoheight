@@ -44,7 +44,7 @@ Tested so far:
 
 ✔ Edge 25
 
-✔ Internet Explorer 11 (also see [Angular's Internet Explorer Compatibility](https://docs.angularjs.org/guide/ie))
+✔ Internet Explorer 11 <br>(apply CSS rule `white-space: pre-wrap` to the textarea for proper line breaks on full lines. also see [Angular's Internet Explorer Compatibility](https://docs.angularjs.org/guide/ie))
 
 # Bugs and improvements
 There is one known pitfall: animating the height using CSS transitiions will result in very jittery and bugged animation. If you feel like there's a way around this, please open an issue.
